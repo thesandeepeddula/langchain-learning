@@ -1,0 +1,22 @@
+# Core
+langchain>=0.3.0
+langchain-groq>=0.2.0
+langgraph>=0.2.0
+langsmith>=0.1.0
+
+# For the RAG capstone (step 06) — local embeddings, no API needed
+langchain-huggingface>=0.1.0
+langchain-text-splitters>=0.3.0
+langchain-community>=0.3.0
+sentence-transformers>=3.0.0
+langchain-chroma>=0.1.4
+chromadb>=0.5.0
+
+# Misc
+python-dotenv>=1.0.0
+grandalf>=0.8  # optional: lets graph.get_graph().draw_ascii() render (step 04+)
+
+# Optional: only needed if you want to follow along in Jupyter instead of
+# running the .py scripts directly (see notebook/walkthrough.ipynb)
+jupyterlab>=4.0.0
+ipykernel>=6.29.0

@@ -1,0 +1,18 @@
+# Secrets — never commit your real keys
+.env
+
+# Python virtual environment — regenerate with `pip install -r requirements.txt`
+.venv/
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Chroma vector DB (step 06) — regenerated each run from docs/
+.chroma_db/
+
+# macOS
+.DS_Store

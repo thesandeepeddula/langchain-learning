@@ -1,0 +1,11 @@
+The AI Control Tower (AICT) is ServiceNow's internal platform for observing
+and governing enterprise AI usage. It provides adoption metrics, cost
+tracking, and policy enforcement across AI-powered workflows.
+
+The Configuration Management Database (CMDB) is the system of record for
+all IT assets ("configuration items") and the relationships between them.
+Most ServiceNow modules, including AICT, read from or write to the CMDB.
+
+A downsell/upsell ACV (Annual Contract Value) model predicts whether a
+customer account is likely to reduce or expand its contract value, using
+usage, support, and billing signals as features.
