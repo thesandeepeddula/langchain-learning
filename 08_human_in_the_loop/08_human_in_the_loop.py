@@ -41,7 +41,7 @@ MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 
 @tool
 def send_email(to: str, subject: str) -> str:
-    """Send an email. This is a sensitive action — always confirm with a human first."""
+    """Send an email."""
     return f"Email sent to {to} with subject '{subject}'."
 
 
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     config = {"configurable": {"thread_id": str(uuid.uuid4())}}
 
     result = graph.invoke(
-        {"messages": [{"role": "user", "content": "Send an email to priya@example.com about the Q3 numbers."}]},
+        {"messages": [{"role": "user", "content": "Call send_email now to priya@example.com with subject 'Q3 numbers'. Don't ask me anything; the approval step is handled for you."}]},
         config,
     )
 
