@@ -29,13 +29,12 @@ tier (see that step's docstring).
 13_langsmith_eval/      -> capstone: score your agent against a test dataset
 ```
 
-> **Note on Ollama:** this project originally used Ollama for a fully
-> offline setup, but Ollama's desktop app requires macOS 14+, and this
-> Mac is on macOS 12.7.6 — so everything below uses Groq's free API for
-> chat instead. Nothing here needs Ollama. If you ever upgrade macOS, you
-> can swap `ChatGroq(...)` back for `ChatOllama(...)` in each script and
-> nothing else changes — that's the whole point of LangChain's common
-> model interface (see step 01's docstring).
+> **Note on Ollama:** this project originally planned a fully offline
+> setup with Ollama, but everything here uses Groq's free API for chat
+> instead, so nothing needs Ollama. If you want to run a model locally, you
+> can swap `ChatGroq(...)` for `ChatOllama(...)` in each script and nothing
+> else changes — that's the whole point of LangChain's common model
+> interface (see step 01's docstring).
 
 ## Why this order
 
@@ -68,15 +67,20 @@ in to see your account's current limits.
 
 ### 2. Python environment
 
+This project needs **Python 3.10 or newer** (tested on 3.13). macOS's
+built-in `python3` is 3.9, which is too old, so use [uv](https://docs.astral.sh/uv/)
+to get a current version:
+
 ```bash
-cd ~/Documents/langchain-learning
-python3 -m venv .venv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+cd <path-to>/langchain-learning
+uv venv --python 3.13
+uv pip install -r requirements.txt
 source .venv/bin/activate
-pip install -r requirements.txt
 ```
 
 (Run `source .venv/bin/activate` again every time you open a new terminal
-tab to work on this.)
+tab to work on this. The `.python-version` file pins the Python version.)
 
 ### 3. Environment file
 
@@ -109,7 +113,7 @@ python 05_langsmith_tracing/05_tracing_demo.py     # after LangSmith setup
 python 06_rag_agent/06_rag_agent.py                # first run downloads a small embedding model (~90MB)
 
 python 07_persistence/07_persistence.py
-python 08_human_in_the_loop/08_human_in_the_loop.py   # will pause and wait for you to type y/n
+python 08_human_in_the_loop/08_human_in_the_loop.py   # will pause and wait for you to type yes/no
 python 09_streaming/09_streaming.py
 python 10_multi_agent/10_multi_agent.py
 python 11_structured_state/11_structured_state.py
@@ -124,7 +128,7 @@ at every non-obvious line. Don't just run them; open them in an editor.
 ## Using Jupyter instead of the scripts
 
 Everything above also works as a notebook — see `notebook/walkthrough.ipynb`,
-which mirrors all six steps as cells you can run and rerun individually.
+which mirrors steps 1–6 (Part 1) as cells you can run and rerun individually.
 This is often the nicer way to learn: you can inspect an `AIMessage` object,
 tweak a prompt, and re-run just that cell instead of the whole script.
 

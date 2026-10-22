@@ -79,8 +79,9 @@ def supervisor(state: "AgentState"):
         "content": (
             "Decide who should act next. Route to 'metrics_agent' if the user is asking for "
             "usage/adoption numbers that haven't been looked up yet. Route to 'writer_agent' if "
-            "numbers are already in the conversation and need summarizing into prose. Route to "
-            "'END' if the last message already fully answers the user."
+            "numbers are already in the conversation and no prose summary has been written yet. "
+            "Route to 'END' as soon as a prose summary of the numbers exists — never route to "
+            "'writer_agent' twice."
         ),
     }
     decision = router_llm.invoke([system] + state["messages"])
